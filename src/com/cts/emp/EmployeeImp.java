@@ -32,29 +32,12 @@ public class EmployeeImp implements EmployeeDeo {
         try {
             Map<Integer, ArrayList<Object>> gratuityDetails = EmployeeMap.getEmployeeMap();
             System.out.println("===========Get Gratuity Details===========");
-            for (Map.Entry<Integer, ArrayList<Object>> g : gratuityDetails.entrySet()) {
-                if (g.getValue().get(3).equals("F")) {
-                    HashMap<String, HashMap<Integer, Object>> f = new HashMap<>();
-                    HashMap<String, HashMap<Integer, Object>> fmap = new HashMap<String, HashMap<Integer, Object>>();
-                    HashMap<Integer, Object> rmap = new HashMap<Integer, Object>();
-                    f.put("F", fmap.put("R1", (HashMap<Integer, Object>) rmap.put(g.getKey(), g.getValue())));
-                    System.out.println("F" + "" + "[" + "R1" + "]");
-                }
-                if (g.getValue().get(3).equals("S")) {
-                    HashMap<String, HashMap<Integer, Object>> s = new HashMap<>();
-                    HashMap<String, HashMap<Integer, Object>> smap = new HashMap<String, HashMap<Integer, Object>>();
-                    HashMap<Integer, Object> rmap = new HashMap<Integer, Object>();
-                    s.put("S", smap.put("R1", (HashMap<Integer, Object>) rmap.put(g.getKey(), g.getValue())));
-                    System.out.println(s);
-                }
-                if (g.getValue().get(3).equals("M")) {
-                    HashMap<String, HashMap<Integer, Object>> m = new HashMap<>();
-                    HashMap<String, HashMap<Integer, Object>> mmap = new HashMap<String, HashMap<Integer, Object>>();
-                    HashMap<Integer, Object> rmap = new HashMap<Integer, Object>();
-                    m.put("M", mmap.put("R1", (HashMap<Integer, Object>) rmap.put(g.getKey(), g.getValue())));
-                    System.out.println(m);
-                }
-            }
+            HashMap<String, Object> f = EmployeDep.getDepartment("F");
+            System.out.println(f);
+            HashMap<String, Object> s = EmployeDep.getDepartment("S");
+            System.out.println(s);
+            HashMap<String, Object> m = EmployeDep.getDepartment("M");
+            System.out.println(m);
         }catch (Exception e) {e.printStackTrace();}
         System.out.println("===========End Gratuity Details===========");
     }
