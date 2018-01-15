@@ -7,10 +7,8 @@ import java.util.Map;
 
 public class EmployeDep {
 
-
-    static HashMap<String, Object> depCode = new  HashMap<String, Object>();
-
-    public static HashMap<String, Object> getDepartment(String code) throws Exception{
+    public  HashMap<String, Object> getDepartment(String code) throws Exception{
+        HashMap<String, Object> depCode = new  HashMap<String, Object>();
         Map<Integer, ArrayList<Object>> gratuityDetails = EmployeeMap.getEmployeeMap();
         HashMap<String, HashMap> rangMap = new HashMap<String, HashMap>();
         HashMap<Integer, Object> r1 = new HashMap<Integer, Object>();

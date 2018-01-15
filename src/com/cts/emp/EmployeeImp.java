@@ -32,11 +32,11 @@ public class EmployeeImp implements EmployeeDeo {
         try {
             Map<Integer, ArrayList<Object>> gratuityDetails = EmployeeMap.getEmployeeMap();
             System.out.println("===========Get Gratuity Details===========");
-            HashMap<String, Object> f = EmployeDep.getDepartment("F");
+            HashMap<String, Object> f = new EmployeDep().getDepartment("F");
             System.out.println(f);
-            HashMap<String, Object> s = EmployeDep.getDepartment("S");
+            HashMap<String, Object> s = new EmployeDep().getDepartment("S");
             System.out.println(s);
-            HashMap<String, Object> m = EmployeDep.getDepartment("M");
+            HashMap<String, Object> m = new EmployeDep().getDepartment("M");
             System.out.println(m);
         }catch (Exception e) {e.printStackTrace();}
         System.out.println("===========End Gratuity Details===========");
