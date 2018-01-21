@@ -2,9 +2,11 @@ package com.cts.emp;
 
 import com.cts.emp.deo.EmployeeDeo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class EmployeeImp implements EmployeeDeo {
 
@@ -80,6 +82,53 @@ public class EmployeeImp implements EmployeeDeo {
     }
 
      public void getEmployeesWithSameJoiningDate(){
+         try {
+             Map<Integer, ArrayList<Object>> employeeJoinSameDate = EmployeeMap.getEmployeeMap();
+             DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+             ArrayList<String> empJoinDate = null;
+             for(ArrayList<Object> employeeJoinSameDateList : employeeJoinSameDate.values()){
+                  empJoinDate = new ArrayList<String>();
+                 String dateStr1 = employeeJoinSameDateList.get(2).toString();
+                 Date date1 = (Date) formatter.parse(dateStr1);
+                 Calendar cal = Calendar.getInstance();
+                 cal.setTime(date1);
+                 String formatedDate1 = cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.YEAR);
+                for(ArrayList<Object> empJoinSameDate : employeeJoinSameDate.values()) {
+                     String dateStr2 = empJoinSameDate.get(2).toString();
+                     Date date2 = (Date) formatter.parse(dateStr2);
+                     cal.setTime(date2);
+                     String formatedDate2 = cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.YEAR);
+                     if(formatedDate1.equals(formatedDate2)){
+                         empJoinDate.add(employeeJoinSameDateList.get(0).toString());
+                         empJoinDate.add(employeeJoinSameDateList.get(1).toString());
+                         empJoinDate.add(formatedDate1);
 
+                     }
+
+                 }
+                 System.out.println("Emloyees Same Join Date : " + empJoinDate);
+              }
+
+         }catch (Exception e){e.printStackTrace();}
+     }
+
+     public void getEmployeeAsPerSeniorty(){
+
+     }
+
+     public void getEmployeeSecretCode(){
+
+     }
+
+     public void getResignedEmployeeNames(){
+        try {
+            Map<Integer, ArrayList<Object>> employees = EmployeeMap.getEmployeeMap();
+            System.out.println("*********** Resigned Employee Names:");
+            for(ArrayList<Object> employee : employees.values()){
+                if(employee.get(10) != null){
+                   System.out.println(employee.get(4));
+                }
+            }
+        }catch(Exception e){e.printStackTrace();}
      }
 }

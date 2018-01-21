@@ -19,6 +19,9 @@ public class Main {
        new EmployeeImp().getEmployeeSalaryDetails();
        new EmployeeImp().getEmployeeGratuityDetails();
        new EmployeeImp().getCountOfEmployees();
+       new EmployeeImp().getEmployeesWithSameJoiningDate();
+       new EmployeeImp().getResignedEmployeeNames();
+       //new EmployeeImp().getEmployeeAsPerSeniorty();
 
     }
 }

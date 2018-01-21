@@ -40,7 +40,7 @@ public class Employee {
     }
 
     public void setDateOfJoin(Date dateOfJoin) {
-        dateOfJoin = dateOfJoin;
+        this.dateOfJoin = dateOfJoin;
     }
 
     public String getMobileNo() {
